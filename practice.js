@@ -14,6 +14,25 @@ const myString = b ? MY_STRING : 'this is not my string';
 console.log(myString);
 
 const objLit = {foo: 'bar'};
+const largeObj = {
+    id: '1',
+    firstName: 'Dave',
+    lastName: 'Vinson',
+    fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+};
+
+console.log('myLargeObj', largeObj);
+console.log('my full name is', largeObj.fullName());
+
+function changeFirstName(fName) {
+    return {...largeObj, firstName: fName, id: '2'};
+}
+
+let newuser = changeFirstName('Heather');
+console.log('newUser', newuser);
+console.log('my full name is', newuser.fullName());
 
 // function declarations are hoisted, and can be used anywhere in the file
 myOtherFun();
